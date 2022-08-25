@@ -14,7 +14,7 @@ export const LetterDisplay = (props) => {
 
   return (
     <div id="letter-display">
-      {getRandomLetter()}
+      <h1 id="letter-to-test">{getRandomLetter()}</h1>
     </div>
   ) 
 }
