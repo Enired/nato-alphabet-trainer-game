@@ -1,10 +1,17 @@
 //Import Styles
+import { useState } from "react";
 import "../styles/AnswerArea.scss"
 
 export const AnswerArea = (props) => {
+  const [answer, setAnswer] = useState('');
+
+  const submitAnswer = () =>{
+    console.log(answer)
+  }
+
   return (
     <div id="answer-area">
-      
+
       <div className="text-area">
 
         <input 
@@ -12,6 +19,8 @@ export const AnswerArea = (props) => {
         name="answer" 
         id="answer" 
         maxLength={10}
+        value={answer}
+        onChange={(event)=>setAnswer(event.target.value)}
         />
 
       </div>
@@ -26,6 +35,7 @@ export const AnswerArea = (props) => {
         <button 
         className="btn" 
         id="submit-answer"
+        onClick={()=>{submitAnswer()}}
         >
           Submit
         </button>
@@ -33,6 +43,7 @@ export const AnswerArea = (props) => {
         <button 
         className="btn" 
         id="clear-answer"
+        onClick={()=>setAnswer('')}
         >
           Clear
         </button>
