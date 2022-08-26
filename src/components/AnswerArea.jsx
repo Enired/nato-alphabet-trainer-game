@@ -28,6 +28,7 @@ export const AnswerArea = (props) => {
         <button 
         className="btn" 
         id="get-new-letter"
+        onClick={()=>{props.setLetter(props.getRandomLetter())}}
         >
           New Letter
         </button>

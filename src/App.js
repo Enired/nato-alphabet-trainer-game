@@ -21,7 +21,10 @@ function App() {
   return (
     <div className="App">
       <LetterDisplay letter={letter}/>
-      <AnswerArea/>
+      <AnswerArea 
+      getRandomLetter={getRandomLetter} 
+      setLetter={setLetter}
+      />
     </div>
   );
 }
