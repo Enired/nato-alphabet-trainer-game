@@ -19,8 +19,8 @@ export const AnswerArea = (props) => {
         name="answer" 
         id="answer" 
         maxLength={10}
-        value={answer}
-        onChange={(event)=>setAnswer(event.target.value)}
+        value={props.answer}
+        onChange={(event)=>props.setAnswer(event.target.value)}
         />
 
       </div>
@@ -36,7 +36,7 @@ export const AnswerArea = (props) => {
         <button 
         className="btn" 
         id="submit-answer"
-        onClick={()=>{submitAnswer()}}
+        onClick={()=>{props.checkAnswer();}}
         >
           Submit
         </button>
@@ -44,7 +44,7 @@ export const AnswerArea = (props) => {
         <button 
         className="btn" 
         id="clear-answer"
-        onClick={()=>setAnswer('')}
+        onClick={()=>props.setAnswer('')}
         >
           Clear
         </button>

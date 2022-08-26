@@ -7,6 +7,7 @@ import { AnswerArea } from './components/AnswerArea';
 import { useEffect, useState } from 'react';
 function App() {
   const [letter, setLetter] = useState('')
+  const [answer, setAnswer] = useState('')
 
   useEffect(()=>{
     setLetter(getRandomLetter())
@@ -18,12 +19,21 @@ function App() {
     const selectedLetter = alphabet[Math.floor(Math.random() * 26)];
     return selectedLetter;
   }
+
+  const checkAnswer = () => {
+  const status = letter === answer ? true : false
+  console.log(status)
+  return status
+  }
   return (
     <div className="App">
       <LetterDisplay letter={letter}/>
       <AnswerArea 
       getRandomLetter={getRandomLetter} 
       setLetter={setLetter}
+      setAnswer={setAnswer}
+      answer={answer}
+      checkAnswer={checkAnswer}
       />
     </div>
   );
