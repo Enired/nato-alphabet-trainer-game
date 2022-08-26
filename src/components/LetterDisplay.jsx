@@ -15,7 +15,7 @@ export const LetterDisplay = (props) => {
   return (
     <div id="display">
       <h1 id="question-display">What is the NATO code word for the following letter?</h1>
-      <h1 id="letter-display">{getRandomLetter()}</h1>
+      <h1 id="letter-display">{props.letter}</h1>
     </div>
   ) 
 }
