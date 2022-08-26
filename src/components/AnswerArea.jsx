@@ -19,8 +19,8 @@ export const AnswerArea = (props) => {
         name="answer" 
         id="answer" 
         maxLength={10}
-        value={props.answer}
-        onChange={(event)=>props.setAnswer(event.target.value)}
+        value={(props.answer.toUpperCase())}
+        onChange={(event)=>props.setAnswer((event.target.value).toUpperCase())}
         />
 
       </div>
