@@ -7,11 +7,13 @@ import "../styles/AnswerArea.scss"
 import { Button, Collapse, Alert } from "@mui/material";
 
 export const AnswerArea = (props) => {
-  const [answer, setAnswer] = useState('');
+  // const [answer, setAnswer] = useState('');
+  // const []
+  const [wrongAnswer, setWrongAnswer] = useState(false)
 
-  const submitAnswer = () =>{
-    console.log(answer)
-  }
+  // const submitAnswer = () =>{
+  //   console.log(answer)
+  // }
 
   return (
     <div id="answer-area">
@@ -26,7 +28,7 @@ export const AnswerArea = (props) => {
         value={(props.answer.toUpperCase())}
         onChange={(event)=>props.setAnswer((event.target.value).toUpperCase())}
         />
-        <Collapse in={true}>
+        <Collapse in={wrongAnswer}>
           <Alert color="error" severity="error">This is a test</Alert>
         </Collapse>
 
@@ -45,7 +47,14 @@ export const AnswerArea = (props) => {
         variant="contained"
         className="btn" 
         id="submit-answer"
-        onClick={()=>{props.checkAnswer();}}
+        onClick={()=>{
+          if(!props.checkAnswer()){
+            setWrongAnswer(true)
+          };
+          setTimeout(()=>{
+            setWrongAnswer(false)
+          },1500) 
+          }}
         >
           Submit
         </Button>
