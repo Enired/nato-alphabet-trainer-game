@@ -9,6 +9,7 @@
   padding: 1em;
   font-size: 1em;
   text-align: center;
+  width: 40vw
 }
 
 .answer-area-buttons{
@@ -16,9 +17,26 @@
   flex-direction: column;
   align-items: center;
   .btn{
-    width: 40vw;
+    width: 50vw;
     margin: 0.5em;
     background-color: #94b48b;
+    &:hover{
+      background-color: #567050;
+    }
     
   }
+}
+.text-area{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.answer-alert{
+  display: flex;
+  justify-content: center;
+  width: 50vw;
+}
+//Mui Selector
+div.css-1ytlwq5-MuiAlert-icon{
+  margin-right: 2px;
 }

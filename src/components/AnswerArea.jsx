@@ -10,6 +10,7 @@ export const AnswerArea = (props) => {
   // const [answer, setAnswer] = useState('');
   // const []
   const [wrongAnswer, setWrongAnswer] = useState(false)
+  const [rightAnswer, setRightAnswer] = useState(false)
 
   // const submitAnswer = () =>{
   //   console.log(answer)
@@ -25,11 +26,15 @@ export const AnswerArea = (props) => {
         name="answer" 
         id="answer" 
         maxLength={10}
+        autoComplete="off"
         value={(props.answer.toUpperCase())}
         onChange={(event)=>props.setAnswer((event.target.value).toUpperCase())}
         />
         <Collapse in={wrongAnswer}>
-          <Alert color="error" severity="error">This is a test</Alert>
+          <Alert className="answer-alert" color="error" severity="error">Incorrect</Alert>
+        </Collapse>
+        <Collapse in={rightAnswer}>
+          <Alert className="answer-alert" color="success" severity="success">Hooray!</Alert>
         </Collapse>
 
       </div>
@@ -50,10 +55,21 @@ export const AnswerArea = (props) => {
         onClick={()=>{
           if(!props.checkAnswer()){
             setWrongAnswer(true)
+            setTimeout(()=>{
+              setWrongAnswer(false)
+              props.setAnswer('')
+            },1000)
+            return
           };
+          setRightAnswer(true)
           setTimeout(()=>{
-            setWrongAnswer(false)
-          },1500) 
+            setRightAnswer(false)
+            props.setLetter(props.getRandomLetter());
+            props.setAnswer('')
+          }, 1000)
+
+
+
           }}
         >
           Submit

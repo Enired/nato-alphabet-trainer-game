@@ -18,7 +18,7 @@ export const LetterDisplay = (props) => {
 
 
     <div id="display">
-      <h1 id="question-display">What is the NATO code word for the following letter?</h1>
+      <h1 id="question-display">NATO code word?</h1>
       <h1 id="letter-display">{props.letter}</h1>
     </div>
   ) 
