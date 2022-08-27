@@ -4,7 +4,7 @@ import "../styles/AnswerArea.scss"
 
 
 //Importing Material UI Compenents
-import { Button } from "@mui/material";
+import { Button, Collapse, Alert } from "@mui/material";
 
 export const AnswerArea = (props) => {
   const [answer, setAnswer] = useState('');
@@ -26,6 +26,9 @@ export const AnswerArea = (props) => {
         value={(props.answer.toUpperCase())}
         onChange={(event)=>props.setAnswer((event.target.value).toUpperCase())}
         />
+        <Collapse in={true}>
+          <Alert color="error" severity="error">This is a test</Alert>
+        </Collapse>
 
       </div>
       <div className="answer-area-buttons">
