@@ -7,7 +7,7 @@ import { AnswerArea } from './components/AnswerArea';
 import { useEffect, useState } from 'react';
 function App() {
   const [letter, setLetter] = useState('')
-  const [answer, setAnswer] = useState('')
+  const [userAnswer, setUserAnswer] = useState('')
 
   useEffect(()=>{
     setLetter(getRandomLetter())
@@ -21,8 +21,13 @@ function App() {
   }
 
   const checkAnswer = () => {
-  const status = letter === answer ? true : false
+  const status = letter === userAnswer ? true : false
   console.log(status)
+  
+
+
+
+
   return status
   }
   return (
@@ -31,8 +36,8 @@ function App() {
       <AnswerArea 
       getRandomLetter={getRandomLetter} 
       setLetter={setLetter}
-      setAnswer={setAnswer}
-      answer={answer}
+      setAnswer={setUserAnswer}
+      answer={userAnswer}
       checkAnswer={checkAnswer}
       />
     </div>
