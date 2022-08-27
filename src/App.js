@@ -6,15 +6,35 @@ import { prepareNatoAnswer } from './helpers/natoAlphabet';
 //Importing Components
 import { LetterDisplay } from './components/LetterDisplay';
 import { AnswerArea } from './components/AnswerArea';
+import { Timer } from './components/Timer';
 import { useEffect, useState } from 'react';
 function App() {
   const [letter, setLetter] = useState('')
   const [natoAnswer, setNatoAnswer] = useState('')
   const [userAnswer, setUserAnswer] = useState('')
+  const [time, setTime] = useState(5)
+  const [running, setRunning] = useState(true);
 
   useEffect(()=>{
     setLetter(getRandomLetter())
   }, [])
+
+  useEffect(()=>{
+    let interval
+    if(time>=0){
+      interval = setInterval(()=>{
+        setTime((prev)=>(prev - 1))
+      }, 1000)
+    }
+    else if(time<0){
+      clearInterval(interval)
+      setLetter(getRandomLetter())
+      setTime(5)
+    }
+    return () => clearInterval(interval)
+  }, [time])
+
+
 
   const getRandomLetter = () => {
     const alpha = Array.from(Array(26)).map((e, i) => i + 65);
@@ -32,6 +52,7 @@ function App() {
   return (
     <div className="App">
       <LetterDisplay letter={letter}/>
+      <Timer time={time} setTime={setTime}/>
       <AnswerArea 
       getRandomLetter={getRandomLetter} 
       setLetter={setLetter}
