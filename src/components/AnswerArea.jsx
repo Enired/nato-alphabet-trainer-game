@@ -29,6 +29,27 @@ export const AnswerArea = (props) => {
         autoComplete="off"
         value={(props.answer.toUpperCase())}
         onChange={(event)=>props.setAnswer((event.target.value).toUpperCase())}
+        onKeyDown={(event)=>{if(event.key === 'Enter'){
+          
+            if(!props.checkAnswer()){
+              setWrongAnswer(true)
+              setTimeout(()=>{
+                setWrongAnswer(false)
+                props.setAnswer('')
+              },1000)
+              return
+            };
+            setRightAnswer(true)
+            setTimeout(()=>{
+              setRightAnswer(false)
+              props.setLetter(props.getRandomLetter());
+              props.setAnswer('')
+            }, 1000)
+  
+  
+  
+            }
+        }}
         />
         <Collapse in={wrongAnswer}>
           <Alert className="answer-alert" color="error" severity="error">Incorrect</Alert>
