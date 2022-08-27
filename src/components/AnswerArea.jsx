@@ -45,6 +45,7 @@ export const AnswerArea = (props) => {
             };
             setRightAnswer(true)
             setTimeout(()=>{
+              props.setTime(5)
               setRightAnswer(false)
               props.setLetter(props.getRandomLetter());
               props.setAnswer('')
@@ -94,6 +95,7 @@ export const AnswerArea = (props) => {
           setRightAnswer(true)
           setTimeout(()=>{
             setRightAnswer(false)
+            props.setTime(5)
             props.setLetter(props.getRandomLetter());
             props.setAnswer('')
             answerInput.current.focus()

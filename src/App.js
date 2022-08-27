@@ -59,6 +59,8 @@ function App() {
       setAnswer={setUserAnswer}
       answer={userAnswer}
       checkAnswer={checkAnswer}
+      time={time}
+      setTime={setTime}
       />
     </div>
   );
