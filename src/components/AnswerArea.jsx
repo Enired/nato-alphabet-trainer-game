@@ -2,6 +2,10 @@
 import { useState } from "react";
 import "../styles/AnswerArea.scss"
 
+
+//Importing Material UI Compenents
+import { Button } from "@mui/material";
+
 export const AnswerArea = (props) => {
   const [answer, setAnswer] = useState('');
 
@@ -25,29 +29,32 @@ export const AnswerArea = (props) => {
 
       </div>
       <div className="answer-area-buttons">
-        <button 
+        <Button 
+        variant="contained"
         className="btn" 
         id="get-new-letter"
         onClick={()=>{props.setLetter(props.getRandomLetter())}}
         >
           New Letter
-        </button>
+        </Button>
 
-        <button 
+        <Button 
+        variant="contained"
         className="btn" 
         id="submit-answer"
         onClick={()=>{props.checkAnswer();}}
         >
           Submit
-        </button>
+        </Button>
 
-        <button 
+        <Button 
+        variant="contained"
         className="btn" 
         id="clear-answer"
         onClick={()=>props.setAnswer('')}
         >
           Clear
-        </button>
+        </Button>
 
       </div>
     </div>
