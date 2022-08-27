@@ -1,6 +1,8 @@
 //Importing Styles
 import './App.css';
 
+//Import helper functions
+import { prepareNatoAnswer } from './helpers/natoAlphabet';
 //Importing Components
 import { LetterDisplay } from './components/LetterDisplay';
 import { AnswerArea } from './components/AnswerArea';
@@ -18,40 +20,40 @@ function App() {
     const alpha = Array.from(Array(26)).map((e, i) => i + 65);
     const alphabet = alpha.map((x) => String.fromCharCode(x));
     const selectedLetter = alphabet[Math.floor(Math.random() * 26)];
-    prepareNatoAnswer(selectedLetter);
+    setNatoAnswer(prepareNatoAnswer(selectedLetter));
     return selectedLetter;
   }
 
-  const prepareNatoAnswer = (letter) => {
-    switch (letter.toLowerCase()) {
-      case "a": return setNatoAnswer("ALPHA");
-      case "b": return setNatoAnswer("BRAVO");
-      case "c": return setNatoAnswer("CHARLIE");
-      case "d": return setNatoAnswer("DELTA");
-      case "e": return setNatoAnswer("ECHO");
-      case "f": return setNatoAnswer("FOXTROT");
-      case "g": return setNatoAnswer("GOLF");
-      case "h": return setNatoAnswer("HOTEL");
-      case "i": return setNatoAnswer("INDIA");
-      case "j": return setNatoAnswer("JULIET");
-      case "k": return setNatoAnswer("KILO");
-      case "l": return setNatoAnswer("LIMA");
-      case "m": return setNatoAnswer("MIKE");
-      case "n": return setNatoAnswer("NOVEMBER");
-      case "o": return setNatoAnswer("OSCAR");
-      case "p": return setNatoAnswer("PAPA");
-      case "q": return setNatoAnswer("QUEBEC");
-      case "r": return setNatoAnswer("ROMEO");
-      case "s": return setNatoAnswer("SIERRA");
-      case "t": return setNatoAnswer("TANGO");
-      case "u": return setNatoAnswer("UNIFORM");
-      case "v": return setNatoAnswer("VICTOR");
-      case "w": return setNatoAnswer("WHISKEY");
-      case "x": return setNatoAnswer("RAY");
-      case "y": return setNatoAnswer("YANKEE");
-      case "z": return setNatoAnswer("ZULU");
-    }
-  }
+  // const prepareNatoAnswer = (letter) => {
+  //   switch (letter.toLowerCase()) {
+  //     case "a": return "ALPHA"
+  //     case "b": return "BRAVO"
+  //     case "c": return "CHARLIE"
+  //     case "d": return "DELTA"
+  //     case "e": return "ECHO"
+  //     case "f": return "FOXTROT"
+  //     case "g": return "GOLF"
+  //     case "h": return "HOTEL"
+  //     case "i": return "INDIA"
+  //     case "j": return "JULIET"
+  //     case "k": return "KILO"
+  //     case "l": return "LIMA"
+  //     case "m": return "MIKE"
+  //     case "n": return "NOVEMBER"
+  //     case "o": return "OSCAR"
+  //     case "p": return "PAPA"
+  //     case "q": return "QUEBEC"
+  //     case "r": return "ROMEO"
+  //     case "s": return "SIERRA"
+  //     case "t": return "TANGO"
+  //     case "u": return "UNIFORM"
+  //     case "v": return "VICTOR"
+  //     case "w": return "WHISKEY"
+  //     case "x": return "RAY"
+  //     case "y": return "YANKEE"
+  //     case "z": return "ZULU";
+  //   }
+  // }
 
   const checkAnswer = () => {
   const status = natoAnswer === userAnswer ? true : false

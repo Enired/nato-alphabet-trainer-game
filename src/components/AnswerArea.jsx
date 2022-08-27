@@ -43,7 +43,10 @@ export const AnswerArea = (props) => {
         variant="contained"
         className="btn" 
         id="get-new-letter"
-        onClick={()=>{props.setLetter(props.getRandomLetter())}}
+        onClick={()=>{
+          props.setLetter(props.getRandomLetter()); 
+          props.setAnswer('');
+        }}
         >
           New Letter
         </Button>
