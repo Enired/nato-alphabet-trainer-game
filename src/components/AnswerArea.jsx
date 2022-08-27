@@ -1,5 +1,6 @@
-//Import Styles
 import { useState } from "react";
+import { useRef } from "react";
+//Import Styles
 import "../styles/AnswerArea.scss"
 
 
@@ -12,9 +13,11 @@ export const AnswerArea = (props) => {
   const [wrongAnswer, setWrongAnswer] = useState(false)
   const [rightAnswer, setRightAnswer] = useState(false)
 
+  const answerInput = useRef(null)
   // const submitAnswer = () =>{
   //   console.log(answer)
   // }
+
 
   return (
     <div id="answer-area">
@@ -24,7 +27,8 @@ export const AnswerArea = (props) => {
         <input 
         type="text" 
         name="answer" 
-        id="answer" 
+        id="answer"
+        ref={answerInput} 
         maxLength={10}
         autoComplete="off"
         value={(props.answer.toUpperCase())}
@@ -67,6 +71,7 @@ export const AnswerArea = (props) => {
         onClick={()=>{
           props.setLetter(props.getRandomLetter()); 
           props.setAnswer('');
+          answerInput.current.focus()
         }}
         >
           New Letter
@@ -82,6 +87,7 @@ export const AnswerArea = (props) => {
             setTimeout(()=>{
               setWrongAnswer(false)
               props.setAnswer('')
+              answerInput.current.focus()
             },1000)
             return
           };
@@ -90,6 +96,7 @@ export const AnswerArea = (props) => {
             setRightAnswer(false)
             props.setLetter(props.getRandomLetter());
             props.setAnswer('')
+            answerInput.current.focus()
           }, 1000)
 
 
@@ -103,7 +110,10 @@ export const AnswerArea = (props) => {
         variant="contained"
         className="btn" 
         id="clear-answer"
-        onClick={()=>props.setAnswer('')}
+        onClick={()=>{
+          props.setAnswer('');
+          answerInput.current.focus();
+        }}
         >
           Clear
         </Button>
