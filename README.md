@@ -24,7 +24,7 @@ npm start
 ## Gallery
 Demonstration
 
-![Logging in](https://github.com/Enired/my-steam/blob/master/docs/demonstration-gallery/login.gif)
+![Logging in](https://github.com/Enired/nato-alphabet-trainer-game/blob/master/docs/demonstration.gif)
 
 
 ## Future Goals
