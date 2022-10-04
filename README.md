@@ -4,13 +4,7 @@
 
 ## About
 
-React webapp for gamers/steam users to track the status of the games in their library. Users will be able to import their list of games upon signup. Each game can be marked as:
-  - Current
-  - Completed
-  - Dropped
-  - Planning
-
-However, on initial sign-up all games will be marked as 'Planning' by default.
+React webapp for users to practice/learn/test their knowledge of the NATO phonetic alphabet. Users will have 10 seconds to correctly type the word that corresponds to the displayed letter. Correct answer will be shown if the user does not provide the correct response before the timer is completed. If the timer runs out or the correct response is given, a new question/letter will be given to the user.
 
 ## [Link to App]()
 *Hosted on Netlify*
@@ -28,7 +22,7 @@ npm start
 ```
 
 ## Gallery
-Logging In
+Demonstration
 
 ![Logging in](https://github.com/Enired/my-steam/blob/master/docs/demonstration-gallery/login.gif)
 
@@ -36,4 +30,5 @@ Logging In
 ## Future Goals
   - Style app for desktop views. (Currently targeted towards mobile.)
   - Add ability to share a user's score with others.
+  - Give user ability to practice/learn/test with other subjects. (I.e periodic table of elements.)
 
