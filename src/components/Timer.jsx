@@ -1,6 +1,8 @@
+import "../styles/Timer.scss"
+
 export const Timer = (props) => {
   return(
-    <div>
+    <div id="timer">
       {props.time}
     </div>
   )

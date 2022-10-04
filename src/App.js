@@ -12,8 +12,9 @@ function App() {
   const [letter, setLetter] = useState('')
   const [natoAnswer, setNatoAnswer] = useState('')
   const [userAnswer, setUserAnswer] = useState('')
-  const [time, setTime] = useState(5)
+  const [time, setTime] = useState(10)
   const [running, setRunning] = useState(true);
+  const [outOfTime, setOutOfTime] = useState(false)
 
   useEffect(()=>{
     setLetter(getRandomLetter())
@@ -21,15 +22,19 @@ function App() {
 
   useEffect(()=>{
     let interval
-    if(time>=0){
+    if(time>0){
       interval = setInterval(()=>{
         setTime((prev)=>(prev - 1))
       }, 1000)
     }
-    else if(time<0){
+    else if(time<=0){
       clearInterval(interval)
-      setLetter(getRandomLetter())
-      setTime(5)
+      setOutOfTime(true)
+      setTimeout(()=>{
+        setOutOfTime(false)
+        setLetter(getRandomLetter())
+        setTime(10)
+      },3000)
     }
     return () => clearInterval(interval)
   }, [time])
@@ -61,6 +66,8 @@ function App() {
       checkAnswer={checkAnswer}
       time={time}
       setTime={setTime}
+      outOfTime={outOfTime}
+      natoAnswer={natoAnswer}
       />
     </div>
   );

@@ -13,10 +13,12 @@ export const AnswerArea = (props) => {
   const [wrongAnswer, setWrongAnswer] = useState(false)
   const [rightAnswer, setRightAnswer] = useState(false)
 
+
   const answerInput = useRef(null)
   // const submitAnswer = () =>{
   //   console.log(answer)
   // }
+
 
 
   return (
@@ -45,7 +47,7 @@ export const AnswerArea = (props) => {
             };
             setRightAnswer(true)
             setTimeout(()=>{
-              props.setTime(5)
+              props.setTime(10)
               setRightAnswer(false)
               props.setLetter(props.getRandomLetter());
               props.setAnswer('')
@@ -61,6 +63,9 @@ export const AnswerArea = (props) => {
         </Collapse>
         <Collapse in={rightAnswer}>
           <Alert className="answer-alert" color="success" severity="success">Hooray!</Alert>
+        </Collapse>
+        <Collapse in={props.outOfTime}>
+          <Alert className="answer-alert" color="warning" severity="warning">The correct answer was {props.natoAnswer}</Alert>
         </Collapse>
 
       </div>
